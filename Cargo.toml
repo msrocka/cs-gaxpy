@@ -1,0 +1,12 @@
+[package]
+name = "csgaxpy"
+version = "0.0.1"
+authors = ["msrocka"]
+edition = "2018"
+
+[dependencies]
+jni-sys = "0.3.0"
+libc = "0.2.50"
+
+[lib]
+crate_type = ["cdylib"]
