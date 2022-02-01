@@ -3,6 +3,7 @@ package org.openlca.cs.gaxpy;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -71,7 +72,7 @@ public class CsGaxpy {
 		}
 		try (var stream = Objects.requireNonNull(
 				CsGaxpy.class.getResourceAsStream(name))) {
-			Files.copy(stream, file.toPath());
+			Files.copy(stream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
 		}
 	}
 

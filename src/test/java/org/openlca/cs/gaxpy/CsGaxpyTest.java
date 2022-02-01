@@ -1,5 +1,7 @@
 package org.openlca.cs.gaxpy;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 
 import org.junit.Assert;
@@ -11,13 +13,12 @@ public class CsGaxpyTest {
 
 	@Before
 	public void setup() {
-		var libDir = new File("target/release");
-		var libFile = new File(libDir, "csgaxpy.dll");
-		System.load(libFile.getAbsolutePath());
+		CsGaxpy.loadFromFolder(new File("target"));
 	}
 
 	@Test
 	public void test() {
+		assertTrue(CsGaxpy.isLoaded());
 		var matrix = CSCMatrix.of(new double[][] {
 				{ 1.0, 0.0, 3.0 },
 				{ 0.0, 2.0, 0.0 }
